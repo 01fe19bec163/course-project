@@ -125,29 +125,12 @@ begin
 				r[i] = 1;                // error position in input data in binary form.
 			end
 			
-			/*t[0] = 0;
-			t[1] = 1;
-			t[2] = 3;
-			t[3] = 7;
-			t[4] = 15;
-			t[5] = 31;
-			t[6] = 63;
-			
-		for (i=0; i<7; i=i+1)
-      begin
-			if (r > t[i])
-			count = count + 1;
-			else if (r < t[i])
-			c = c + 1;
-		end */
-		// updated value of r that gives error position in the temp data.
-		//k = r-1-count;
 		
 		corrected_out[70:0] = data_in[70:0];
 		
 		if(corrected_out[r-1] == 1'b0)
 		corrected_out[r-1] = 1;
-		else if(corrected_out[r-1] == 1'b1)
+			else if(corrected_out[r-1] == 1'b1)  // error correction
 		corrected_out[r-1] = 0;
 		
 		   k[0] = corrected_out[0];
@@ -193,7 +176,7 @@ begin
 			decoded_out[32] = corrected_out[38];
 			decoded_out[33] = corrected_out[39];
 			decoded_out[34] = corrected_out[40];
-         decoded_out[35] = corrected_out[41];
+                        decoded_out[35] = corrected_out[41];
 			decoded_out[36] = corrected_out[42];
 			decoded_out[37] = corrected_out[43];
 			decoded_out[38] = corrected_out[44];
